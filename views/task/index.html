@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello Crud</title>
+  </head>
+  <body>
+
+    <div class="container mt-5">
+        
+        <h3>Data Task</h3>
+        <a href="/task/add" class="btn btn-sm btn-primary"> Tambah Task</a>
+       <hr/>
+        <table class="table table-sriped table-hover">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Nama</th>
+                    <th>Deadline</th>
+                </tr>
+            </thead>
+            <tbody>
+              {{ range .task }}
+                  <tr>
+                      <td>{{ .InputTask }}</td>
+                      <td>{{ .Name }}</td>
+                      <td>{{ .Deadline }}</td>
+                      <td>
+                          <a href="/task/edit?id={{.Id}}" class="btn btn-sm btn-warning">Edit</a>
+                          <a href="/task/delete?id={{.Id}}" onclick="return confirm('Aapakah anda yakin ingin menghapus data?')" class="btn btn-sm btn-danger">Hapus</a>
+                      </td>
+                  </tr>
+              {{ end }}
+          </tbody>
+        </table>
+    </div>
+
+
+  </body>
+</html>
